@@ -1,0 +1,27 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testpod2
+  labels:
+    env: development
+    class: pods
+spec:
+  containers:
+    - name: c1
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo $youtuber; sleep 5 ; done"]
+    - name: c2
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Gursewak; sleep 5 ; done"]
+    - name: c3
+      image: httpd
+      # command: ["/bin/bash", "-c", "echo Hello-Apache Once; sleep 38 ; echo Done ", "/usr/local/apache2/bin/httpd -D F  OREGROUND"]
+      ports:
+        - containerPort: 80
+      env:
+        - name: user
+          value: Gursewak Dhillonz
+  restartPolicy: Never         # Defaults to Always
+  nodeSelector:                                         
+    hardware: t2-medium
+

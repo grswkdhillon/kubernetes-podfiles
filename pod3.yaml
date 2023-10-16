@@ -1,0 +1,12 @@
+kind: Pod                              
+apiVersion: v1                     
+metadata:                           
+  name: testpod3               
+spec:                                    
+  containers:                      
+    - name: c01                     
+      image: httpd
+      ports:
+        - containerPort: 1322  
+  restartPolicy: Never         # Defaults to Always
+
